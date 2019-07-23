@@ -6,7 +6,8 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { NavBarComponent } from './nav/nav.component';
 import { CreateUserComponent } from './users/create-user/create-user.component'
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

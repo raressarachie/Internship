@@ -1,14 +1,21 @@
+
+<form id="searchForm" (keyup.enter)="setSearchTerm(searchTerm)"  class="form-inline"  >
+    <div class="form-group">
+      <input [(ngModel)]="searchTerm" (ngModelChange)="onWhiteSpaceEmit($event)" name="searchTerm" type="text" class="form-control" placeholder="Search usernames" >
+    </div>
+</form>
+
 <table id="users">
   <tr>
     <th *ngFor="let col of columns">
       {{col}}
     </th>
   </tr>
-  <tr *ngFor="let user of users">
-    <td *ngFor="let col of columns">
-      {{user[col]}}
-    </td>
-  </tr>
+    <tr *ngFor="let user of displayedUsers">
+      <td *ngFor="let col of columns">
+        {{user[col]}}
+      </td>
+    </tr>
 </table>
 <button class="button button1" (click)="toUser()">Add User</button>
 
