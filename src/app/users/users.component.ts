@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from './user.model'
-import { UserService } from './user.service'
+import { User } from './user.model';
+import { UserService } from './user.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class UsersComponent implements OnInit {
 
-    users = []
+    users = [];
 
-    title = 'User list'
+    title = 'User list';
 
-    columns = ['id', 'firstName', 'lastName', 'userName']
+    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail'];
 
-  constructor(private userService: UserService,private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   getUsers(): void {
    this.userService.getUsers()
@@ -27,8 +27,8 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  toUser(){
-    this.router.navigate(['users/new'])
+  toUser() {
+    this.router.navigate(['users/new']);
   }
 
 }

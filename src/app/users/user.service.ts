@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model'
-import { USERS } from './mock-users'
+import { User } from './user.model';
+import { USERS } from './mock-users';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
-  constructor() { }
+  constructor() {}
 
   getUsers(): Observable<User[]> {
     return of(USERS);
   }
 
-  saveUser(user){
-    user.id = 999
-    USERS.push(user)
+  getNextId(): number {
+    return Math.max.apply(Math, USERS.map(o => o.id)) + 1;
   }
 
-
-
+  saveUser(user) {
+    user.id = this.getNextId();
+    USERS.push(user);
+  }
 }
