@@ -41,3 +41,10 @@
   color: black;
   border: 2px solid rgb(42, 46, 105);
 }
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#searchForm {margin-bottom: 13px;}

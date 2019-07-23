@@ -16,11 +16,23 @@ export class UsersComponent implements OnInit {
 
     columns = ['id', 'firstName', 'lastName', 'userName', 'eMail'];
 
+    searchTerm: string = '';
+
+
+
   constructor(private userService: UserService, private router: Router) { }
 
   getUsers(): void {
    this.userService.getUsers()
     .subscribe(users => this.users = users);
+  }
+
+  setSearchTerm(searchTerm){
+    this.searchTerm = searchTerm;
+  }
+
+  filterByUserame(username : string){
+    return username.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase());
   }
 
   ngOnInit() {
