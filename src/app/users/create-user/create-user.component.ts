@@ -43,8 +43,22 @@ export class CreateUserComponent implements OnInit {
     return this.firstName.valid || this.firstName.untouched;
   }
 
+  validateUserName() {
+    return this.userName.valid || this.userName.untouched;
+  }
+
   validateEmail() {
     return this.eMail.valid || this.eMail.untouched;
+  }
+
+   /**
+     * Mark reactive form controls as touched.
+     * @param formGroup FormGroup for which the controls are marked as touched.
+     */
+    markFormGroupControlsAsTouched(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).map(function (key) {
+          formGroup.controls[key].markAsTouched();
+      });
   }
 
   saveUser(formValues) {
@@ -55,6 +69,9 @@ export class CreateUserComponent implements OnInit {
       userName: formValues.userName,
       eMail: formValues.eMail
     };
+
+    this.markFormGroupControlsAsTouched(this.newUserForm);
+
     if (this.newUserForm.valid) {
       this.userService.saveUser(user);
       this.router.navigate(["/users"]);
