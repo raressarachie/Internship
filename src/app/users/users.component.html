@@ -1,9 +1,9 @@
 
-<form id="searchForm" (ngSubmit)="setSearchTerm(searchTerm)" class="form-inline"  >
+<form id="searchForm" (keyup.enter)="setSearchTerm(searchTerm)"  class="form-inline"  >
     <div class="form-group">
-      <input [(ngModel)]="searchTerm" name="searchTerm" type="text" class="form-control" placeholder="Search usernames" >
+      <input [(ngModel)]="searchTerm" (ngModelChange)="onWhiteSpaceEmit($event)" name="searchTerm" type="text" class="form-control" placeholder="Search usernames" >
     </div>
-  </form>
+</form>
 
 <table id="users">
   <tr>
@@ -11,13 +11,11 @@
       {{col}}
     </th>
   </tr>
-  <ng-container *ngFor="let user of users">
-    <tr *ngIf="filterByUserame(user.userName)">
-        <td *ngFor="let col of columns">
-          {{user[col]}}
-        </td>
+    <tr *ngFor="let user of displayedUsers">
+      <td *ngFor="let col of columns">
+        {{user[col]}}
+      </td>
     </tr>
-  </ng-container>
 </table>
 <button class="button button1" (click)="toUser()">Add User</button>
 

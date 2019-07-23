@@ -32,6 +32,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavBarComponent {
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService) {}
 
 }
