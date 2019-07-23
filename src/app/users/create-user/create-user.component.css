@@ -25,7 +25,15 @@ input[type=submit]:hover {
 
 div.container {
   border-radius: 5px;
-  background-color: #7a9cac;
+  background-color: #439cc5;
   padding: 20px;
   width: 40%;
 }
+
+em {float:right; color:#E05C65; padding-left: 10px;}
+  .error input, .error select, .error textarea {background-color:#E3C3C5;}
+  .error ::-webkit-input-placeholder {color:#999;}
+  .error ::-moz-placeholder {color:#999;}
+  .error :-moz-placeholder {color:#999;}
+  .error :ms-input-placeholder {color:#999;}
+
