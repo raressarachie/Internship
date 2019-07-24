@@ -21,14 +21,25 @@ export class UsersComponent implements OnInit {
 
     displayedUsers = [];
 
+    p: number = 1;
+
 
   constructor(private userService: UserService, private router: Router) { }
 
   getUsers(): void {
    this.userService.getUsers()
     .subscribe(users =>
-      this.users = users
+        this.users = users
       );
+
+   for (let i = 0; i < 25 ; i++) {
+    var j = 0;
+    while(j < 4){
+      this.users.push(this.users[j]);
+      j++;
+    }
+   }
+
    this.displayedUsers = this.users;
   }
 

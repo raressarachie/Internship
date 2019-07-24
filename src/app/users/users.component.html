@@ -11,11 +11,12 @@
       {{col}}
     </th>
   </tr>
-    <tr *ngFor="let user of displayedUsers">
+    <tr *ngFor="let user of displayedUsers | paginate: { itemsPerPage: 5, currentPage: p }">
       <td *ngFor="let col of columns">
         {{user[col]}}
       </td>
     </tr>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </table>
 <button class="button button1" (click)="toUser()">Add User</button>
 
