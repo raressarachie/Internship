@@ -16,7 +16,11 @@
         {{user[col]}}
       </td>
     </tr>
+
+    <button class="button button1" (click)="toUser()">Add User</button>
+
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    
 </table>
-<button class="button button1" (click)="toUser()">Add User</button>
+
 
