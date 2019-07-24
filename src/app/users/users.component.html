@@ -7,7 +7,7 @@
   <tr *ngFor="let user of users">
     <td *ngFor="let col of columns">
       {{user[col]}}
-      <span *ngIf = " col==='actions'"> <button class ="button button2" (click) = "editUser()">Edit User</button> </span>
+      <span *ngIf = " col==='actions'"> <button [routerLink]="['/users/edit', user.id]" class ="button button2">Edit User</button> </span>
     </td>
 
 
