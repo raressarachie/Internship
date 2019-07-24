@@ -54,6 +54,7 @@ export class CreateUserComponent implements OnInit {
       lastName: formValues.lastName,
       userName: formValues.userName,
       eMail: formValues.eMail
+
     };
     if (this.newUserForm.valid) {
       this.userService.saveUser(user);
@@ -64,4 +65,6 @@ export class CreateUserComponent implements OnInit {
   cancel() {
     this.router.navigate(["/users"]);
   }
+
+  
 }

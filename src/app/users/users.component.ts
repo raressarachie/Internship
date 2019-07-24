@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 
 @Component({
   selector: 'app-users',
@@ -14,7 +15,7 @@ export class UsersComponent implements OnInit {
 
     title = 'User list';
 
-    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail'];
+    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail', 'actions'];
 
   constructor(private userService: UserService, private router: Router) { }
 
@@ -28,6 +29,10 @@ export class UsersComponent implements OnInit {
   }
 
   toUser() {
+    this.router.navigate(['users/new']);
+  }
+
+  editUser(){
     this.router.navigate(['users/new']);
   }
 

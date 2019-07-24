@@ -7,7 +7,12 @@
   <tr *ngFor="let user of users">
     <td *ngFor="let col of columns">
       {{user[col]}}
+      <span *ngIf = " col==='actions'"> <button class ="button button2" (click) = "editUser()">Edit User</button> </span>
     </td>
+
+
+
+
   </tr>
 </table>
 <button class="button button1" (click)="toUser()">Add User</button>
