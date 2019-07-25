@@ -7,8 +7,8 @@
 
 <table id="users">
   <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
+    <th *ngFor="let header of headers">
+      {{header}}
     </th>
   </tr>
     <tr *ngFor="let user of displayedUsers | paginate: { itemsPerPage: 5, currentPage: p }">
@@ -20,7 +20,7 @@
     <button class="button button1" (click)="toUser()">Add User</button>
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
-    
+
 </table>
 
 
