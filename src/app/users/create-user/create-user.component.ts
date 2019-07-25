@@ -2,22 +2,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from '../user.model';
 import { UserService } from '../user.service';
-import { Router, ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
   styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
-  id: number = +this.route.snapshot.params['id'];
   firstName: FormControl;
   lastName: FormControl;
   userName: FormControl;
   eMail: FormControl;
   newUserForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router, private route:ActivatedRoute) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
     this.firstName = new FormControl('', Validators.required);
@@ -35,17 +33,6 @@ export class CreateUserComponent implements OnInit {
       userName: this.userName,
       eMail: this.eMail
     });
-    if(this.route.snapshot.params['id']) {
-      let id = +this.route.snapshot.params['id'];
-      let user = this.userService.getUserById(+this.route.snapshot.params['id']);
-      
-      this.firstName.setValue(user.firstName);
-      this.lastName.setValue(user.lastName);
-      this.userName.setValue(user.userName);
-      this.eMail.setValue(user.eMail);
-
-    }
-    
   }
 
   validateLastName() {
@@ -75,15 +62,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   saveUser(formValues) {
-    const user: User = (this.id) ? {
-      id: this.id,
-      firstName: formValues.firstName,
-      lastName: formValues.lastName,
-      userName: formValues.userName,
-      eMail: formValues.eMail
-
-    } :
-    {
+    const user: User = {
       id: undefined,
       firstName: formValues.firstName,
       lastName: formValues.lastName,
@@ -93,7 +72,6 @@ export class CreateUserComponent implements OnInit {
     };
 
     this.markFormGroupControlsAsTouched(this.newUserForm);
-
 
     if (this.newUserForm.valid) {
       this.userService.saveUser(user);
@@ -110,6 +88,4 @@ export class CreateUserComponent implements OnInit {
     this.router.navigate(['/users']);
 
   }
-
-  
 }

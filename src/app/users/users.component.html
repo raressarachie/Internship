@@ -17,7 +17,6 @@
         {{user[col]}}
         <span *ngIf="col === 'Actions'">
         <button class="button button2" (click)="toView(user.id)">View User</button> </span>
-        <span *ngIf = " col==='actions'"> <button [routerLink]="['/users/edit', user.id]" class ="button button2">Edit User</button> </span>
       </td>
     </tr>
 
