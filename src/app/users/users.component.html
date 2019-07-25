@@ -7,6 +7,8 @@
   <tr *ngFor="let user of users">
     <td *ngFor="let col of columns">
       {{user[col]}}
+      <span *ngIf="col === 'Actions'">
+      <button class="button button2" (click)="toView(user.id)">View User</button> </span>
     </td>
   </tr>
 </table>
