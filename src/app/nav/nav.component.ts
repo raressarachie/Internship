@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserService } from '../users/user.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'nav-bar',
@@ -31,6 +32,6 @@ import { UserService } from '../users/user.service';
 })
 export class NavBarComponent {
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService) {}
 
 }
