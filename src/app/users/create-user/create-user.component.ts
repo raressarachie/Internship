@@ -32,7 +32,7 @@ export class CreateUserComponent implements OnInit {
       lastName: this.lastName,
       userName: this.userName,
       eMail: this.eMail
-    });
+    });  
   }
 
   validateLastName() {
@@ -67,7 +67,8 @@ export class CreateUserComponent implements OnInit {
       firstName: formValues.firstName,
       lastName: formValues.lastName,
       userName: formValues.userName,
-      eMail: formValues.eMail
+      eMail: formValues.eMail,
+      Actions: undefined
     };
 
     this.markFormGroupControlsAsTouched(this.newUserForm);
@@ -78,7 +79,12 @@ export class CreateUserComponent implements OnInit {
     }
   }
 
+
+  back() {
+    this.router.navigate([])
+
   cancel() {
     this.router.navigate(['/users']);
+
   }
 }

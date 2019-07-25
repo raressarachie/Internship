@@ -22,7 +22,7 @@
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: rgb(16, 216, 22);
   border: none;
   color: rgb(3, 48, 9);
   padding: 8px 24px;
@@ -37,10 +37,16 @@
 }
 
 .button1 {
-  background-color: #52BCE2;
+  background-color: rgb(38, 137, 177);
   color: black;
-  border: 2px solid rgb(42, 46, 105);
+  border: 2px solid rgb(95, 144, 167);
 }
+.button2 {
+  background-color: rgb(39, 183, 219);
+  color: rgb(91, 120, 129);
+  border: 2px solid rgb(210, 246, 246);
+}
+
 
 .form-inline {
   display: flex;
@@ -48,3 +54,4 @@
   align-items: center;
 }
 #searchForm {margin-bottom: 13px;}
+

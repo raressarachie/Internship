@@ -7,13 +7,16 @@ import { NgModel } from '@angular/forms';
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
-  styleUrls: ['./users.component.css']
+  styleUrls: [ './users.component.css' ]
 })
 export class UsersComponent implements OnInit {
 
     users = [];
 
     title = 'User list';
+
+
+    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail' ,'Actions'];
 
     headers = ['First Name', 'Last Name', 'User Name', 'e-Mail'];
     columns = ['firstName', 'lastName', 'userName', 'eMail'];
@@ -23,6 +26,7 @@ export class UsersComponent implements OnInit {
     displayedUsers = [];
 
     p: number = 1;
+
 
 
   constructor(private userService: UserService, private router: Router) { }
@@ -63,6 +67,12 @@ export class UsersComponent implements OnInit {
 
   toUser() {
     this.router.navigate(['users/new']);
+  }
+  toView(id: number){
+    this.router.navigate(['users/view/' + id])
+  }
+  getUser(id:number){
+    
   }
 
 }

@@ -11,6 +11,15 @@
       {{header}}
     </th>
   </tr>
+
+  <tr *ngFor="let user of users">
+    <td *ngFor="let col of columns">
+      {{user[col]}}
+      <span *ngIf="col === 'Actions'">
+      <button class="button button2" (click)="toView(user.id)">View User</button> </span>
+    </td>
+  </tr>
+
     <tr *ngFor="let user of displayedUsers | paginate: { itemsPerPage: 5, currentPage: p }">
       <td *ngFor="let col of columns">
         {{user[col]}}
@@ -20,6 +29,7 @@
     <button class="button button1" (click)="toUser()">Add User</button>
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
 
 </table>
 
