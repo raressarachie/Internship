@@ -48,11 +48,11 @@ export class UsersComponent implements OnInit {
     }
    }
 
-   this.displayedUsers = this.users;
+   this.displayedUsers = JSON.parse(JSON.stringify(this.users));
   }
 
   setSearchTerm(searchTerm) {
-    this.displayedUsers = this.users;
+    this.displayedUsers = JSON.parse(JSON.stringify(this.users));
     this.displayedUsers = this.displayedUsers.
     filter( user => user.userName.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase()));
   }
@@ -69,8 +69,7 @@ export class UsersComponent implements OnInit {
         if (this.clickButton1 % 2 === 1) {
           this.displayedUsers.sort(sortByFirstNameAsc);
         } else {
-          console.log(this.users)
-          this.displayedUsers = this.users;
+          this.displayedUsers = JSON.parse(JSON.stringify(this.users));
         }
 
     } else {
@@ -78,7 +77,7 @@ export class UsersComponent implements OnInit {
       if (this.clickButton2 % 2 === 1) {
         (this.displayedUsers.sort(sortByLastNameAsc));
       } else {
-        this.displayedUsers = this.users;
+        this.displayedUsers = JSON.parse(JSON.stringify(this.users));
       }
       this.clickButton2 += 1;
      }
