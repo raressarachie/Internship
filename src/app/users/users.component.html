@@ -1,19 +1,31 @@
+
+<form id="searchForm" (keyup.enter)="setSearchTerm(searchTerm)"  class="form-inline"  >
+    <div class="form-group">
+      <input [(ngModel)]="searchTerm" (ngModelChange)="onWhiteSpaceEmit($event)" name="searchTerm" type="text" class="form-control" placeholder="Search usernames" >
+    </div>
+</form>
+
 <table id="users">
   <tr>
-    <th *ngFor="let col of columns">
-      {{col}}
+    <th *ngFor="let header of headers">
+      {{header}}
     </th>
   </tr>
-  <tr *ngFor="let user of users">
-    <td *ngFor="let col of columns">
-      {{user[col]}}
-      <span *ngIf = " col==='actions'"> <button [routerLink]="['/users/edit', user.id]" class ="button button2">Edit User</button> </span>
-    </td>
+
+    <tr *ngFor="let user of displayedUsers | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td *ngFor="let col of columns">
+        {{user[col]}}
+        <span *ngIf="col === 'Actions'">
+        <button class="button button2" (click)="toView(user.id)">View User</button> </span>
+        <span *ngIf = " col==='actions'"> <button [routerLink]="['/users/edit', user.id]" class ="button button2">Edit User</button> </span>
+      </td>
+    </tr>
+
+    <button class="button button1" (click)="toUser()">Add User</button>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 
-
-
-  </tr>
 </table>
-<button class="button button1" (click)="toUser()">Add User</button>
+
 
