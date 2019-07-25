@@ -36,7 +36,9 @@
   cursor: pointer;
 }
 
-
+.sorting{
+  margin-left: 8px;
+}
 
 .button1 {
   background-color: rgb(38, 137, 177);

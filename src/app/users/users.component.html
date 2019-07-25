@@ -5,8 +5,8 @@
     </div>
 </form>
 
-<button class="sortingBtn" [class.active]="sortBy==='firstName'" (click)="sortBy='firstName'; sort()">By First Name</button>
-<button class="sortingBtn"  [class.active]="sortBy==='lastName'" (click)="sortBy='lastName'; sort()">By Last Name</button>
+<button class="sorting btn btn-primary btn-sm" [class.active]="sortBy==='firstName'" (click)="sortBy='firstName'; sort()">By First Name</button>
+<button class="sorting btn btn-primary btn-sm"  [class.active]="sortBy==='lastName'" (click)="sortBy='lastName'; sort()">By Last Name</button>
 
 <table id="users">
   <tr>
