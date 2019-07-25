@@ -15,7 +15,8 @@ export class UsersComponent implements OnInit {
 
     title = 'User list';
 
-    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail'];
+    headers = ['First Name', 'Last Name', 'User Name', 'e-Mail'];
+    columns = ['firstName', 'lastName', 'userName', 'eMail'];
 
     searchTerm = '';
 
