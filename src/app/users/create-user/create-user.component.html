@@ -1,0 +1,39 @@
+<div class="container">
+  <form [formGroup]="newUserForm" (ngSubmit)="saveUser(newUserForm.value)">
+    <h3>Add User</h3>
+
+    <div class="form-group" [ngClass]="{ error: !validateFirstName() }">
+      <label>First Name: </label>
+      <em *ngIf="!validateFirstName()">Required!</em>
+      <input type="text" formControlName="firstName" />
+    </div>
+
+    <div class="form-group" [ngClass]="{ error: !validateLastName() }">
+      <label>Last Name: </label>
+      <em *ngIf="!validateLastName()">Required!</em>
+      <input type="text" formControlName="lastName" />
+    </div>
+
+    <div class="form-group" [ngClass]="{ error: !validateUserName() }">
+      <label> User Name: </label>
+      <em *ngIf="!validateUserName()">Required!</em>
+      <input type="text" formControlName="userName" />
+    </div>
+
+    <div class="form-group" [ngClass]="{ error: !validateEmail() }">
+      <em *ngIf="!validateEmail() && newUserForm.controls.eMail.errors.required"
+        >Required!</em
+      >
+      <em *ngIf="!validateEmail() && newUserForm.controls.eMail.errors.pattern"
+        >Invalid e-mail address!</em
+      >
+      <label> E-mail address: </label>
+      <input type="text" formControlName="eMail" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" (click)="cancel()" class="btn btn-default">
+      Cancel
+    </button>
+  </form>
+</div>
