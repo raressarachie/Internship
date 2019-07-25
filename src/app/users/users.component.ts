@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
+import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { NgModel } from '@angular/forms';
 
 @Component({
@@ -73,6 +74,10 @@ export class UsersComponent implements OnInit {
   }
   getUser(id:number){
 
+  }
+
+  editUser(){
+    this.router.navigate(['users/new']);
   }
 
 }

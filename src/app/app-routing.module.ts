@@ -6,7 +6,9 @@ import {ViewUserComponent} from './users/view-user/view-user.component'
 import {Error404Component} from './errors/404.component'
 import{UserRouteActivator} from './users/view-user/user-route-activator.service'
 
+
  export const routes: Routes = [
+  { path: 'users/edit/:id', component: CreateUserComponent},
   {path: 'users/view/:id', component: ViewUserComponent,
   canActivate: [UserRouteActivator] },
   { path: 'users/new', component: CreateUserComponent },
@@ -14,6 +16,7 @@ import{UserRouteActivator} from './users/view-user/user-route-activator.service'
   { path: '404',component:Error404Component },
   
   {path: '', redirectTo: '/users',pathMatch: 'full'}
+
 
 ];
 
