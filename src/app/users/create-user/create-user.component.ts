@@ -1,12 +1,12 @@
-import { Component, OnInit, Output, EventEmitter } from "@angular/core";
-import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { User } from "../user.model";
-import { UserService } from "../user.service";
-import { Router } from "@angular/router";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { User } from '../user.model';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 @Component({
-  selector: "app-create-user",
-  templateUrl: "./create-user.component.html",
-  styleUrls: ["./create-user.component.css"]
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
 export class CreateUserComponent implements OnInit {
   firstName: FormControl;
@@ -18,12 +18,12 @@ export class CreateUserComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit() {
-    this.firstName = new FormControl("", Validators.required);
+    this.firstName = new FormControl('', Validators.required);
 
-    this.lastName = new FormControl("", Validators.required);
-    this.userName = new FormControl("", Validators.required);
+    this.lastName = new FormControl('', Validators.required);
+    this.userName = new FormControl('', Validators.required);
 
-    this.eMail = new FormControl("", [Validators.required,
+    this.eMail = new FormControl('', [Validators.required,
     Validators.pattern('([a-zA-Z0-9._%+-])+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$')
     ]);
 
@@ -43,8 +43,22 @@ export class CreateUserComponent implements OnInit {
     return this.firstName.valid || this.firstName.untouched;
   }
 
+  validateUserName() {
+    return this.userName.valid || this.userName.untouched;
+  }
+
   validateEmail() {
     return this.eMail.valid || this.eMail.untouched;
+  }
+
+    /**
+     * Mark reactive form controls as touched.
+     * @param formGroup FormGroup for which the controls are marked as touched.
+     */
+    markFormGroupControlsAsTouched(formGroup: FormGroup) {
+      Object.keys(formGroup.controls).map(function(key) {
+          formGroup.controls[key].markAsTouched();
+      });
   }
 
   saveUser(formValues) {
@@ -55,13 +69,16 @@ export class CreateUserComponent implements OnInit {
       userName: formValues.userName,
       eMail: formValues.eMail
     };
+
+    this.markFormGroupControlsAsTouched(this.newUserForm);
+
     if (this.newUserForm.valid) {
       this.userService.saveUser(user);
-      this.router.navigate(["/users"]);
+      this.router.navigate(['/users']);
     }
   }
 
   cancel() {
-    this.router.navigate(["/users"]);
+    this.router.navigate(['/users']);
   }
 }
