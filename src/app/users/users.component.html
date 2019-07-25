@@ -5,6 +5,9 @@
     </div>
 </form>
 
+<button class="sortingBtn" [class.active]="sortBy==='firstName'" (click)="sortBy='firstName'; sort()">By First Name</button>
+<button class="sortingBtn"  [class.active]="sortBy==='lastName'" (click)="sortBy='lastName'; sort()">By Last Name</button>
+
 <table id="users">
   <tr>
     <th *ngFor="let header of headers">

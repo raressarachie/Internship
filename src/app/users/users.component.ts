@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
@@ -10,6 +10,9 @@ import { NgModel } from '@angular/forms';
   styleUrls: [ './users.component.css' ]
 })
 export class UsersComponent implements OnInit {
+
+
+  constructor(private userService: UserService, private router: Router) { }
 
     users = [];
 
@@ -25,11 +28,11 @@ export class UsersComponent implements OnInit {
 
     displayedUsers = [];
 
-    p: number = 1;
+    p = 1;
 
-
-
-  constructor(private userService: UserService, private router: Router) { }
+    sortBy = 'firstName';
+    clickButton1 = 0;
+    clickButton2 = 0;
 
   getUsers(): void {
    this.userService.getUsers()
@@ -38,8 +41,8 @@ export class UsersComponent implements OnInit {
       );
 
    for (let i = 0; i < 25 ; i++) {
-    var j = 0;
-    while(j < 4){
+    let j = 0;
+    while (j < 4) {
       this.users.push(this.users[j]);
       j++;
     }
@@ -58,6 +61,29 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
+
+  sort() {
+    if (this.users) {
+      if (this.sortBy === 'firstName') {
+        this.clickButton1 += 1;
+        if (this.clickButton1 % 2 === 1) {
+          this.displayedUsers.sort(sortByFirstNameAsc);
+        } else {
+          console.log(this.users)
+          this.displayedUsers = this.users;
+        }
+
+    } else {
+
+      if (this.clickButton2 % 2 === 1) {
+        (this.displayedUsers.sort(sortByLastNameAsc));
+      } else {
+        this.displayedUsers = this.users;
+      }
+      this.clickButton2 += 1;
+     }
+    }
+  }
   onWhiteSpaceEmit(value) {
     if (value === '') {
       this.setSearchTerm(value);
@@ -76,3 +102,26 @@ export class UsersComponent implements OnInit {
   }
 
 }
+
+function sortByFirstNameAsc(user1: User, user2: User) {
+
+
+    if ( user1.firstName > user2.firstName ) {
+      return 1;
+    } else if ( user1.firstName === user2.firstName ) {
+      return 0;
+    } else { return -1; }
+}
+
+
+function sortByLastNameAsc(user1: User, user2: User) {
+  if ( user1.lastName > user2.lastName ) {
+    return 1;
+  } else if ( user1.lastName === user2.lastName ) {
+    return 0;
+ } else { return -1; }
+}
+
+
+
+
