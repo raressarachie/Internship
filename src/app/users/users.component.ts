@@ -73,13 +73,12 @@ export class UsersComponent implements OnInit {
         }
 
     } else {
-
+      this.clickButton2 += 1;
       if (this.clickButton2 % 2 === 1) {
         (this.displayedUsers.sort(sortByLastNameAsc));
       } else {
         this.displayedUsers = JSON.parse(JSON.stringify(this.users));
       }
-      this.clickButton2 += 1;
      }
     }
   }
