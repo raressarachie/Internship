@@ -32,7 +32,7 @@ export class CreateUserComponent implements OnInit {
       lastName: this.lastName,
       userName: this.userName,
       eMail: this.eMail
-    });  
+    });
   }
 
   validateLastName() {
@@ -82,6 +82,7 @@ export class CreateUserComponent implements OnInit {
 
   back() {
     this.router.navigate([])
+  }
 
   cancel() {
     this.router.navigate(['/users']);

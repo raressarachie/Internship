@@ -16,10 +16,10 @@ export class UsersComponent implements OnInit {
     title = 'User list';
 
 
-    columns = ['id', 'firstName', 'lastName', 'userName', 'eMail' ,'Actions'];
+    columns = ['firstName', 'lastName', 'userName', 'eMail' ,'Actions'];
 
-    headers = ['First Name', 'Last Name', 'User Name', 'e-Mail'];
-    columns = ['firstName', 'lastName', 'userName', 'eMail'];
+    headers = ['First Name', 'Last Name', 'User Name', 'e-Mail', 'Actions'];
+
 
     searchTerm = '';
 
@@ -72,7 +72,7 @@ export class UsersComponent implements OnInit {
     this.router.navigate(['users/view/' + id])
   }
   getUser(id:number){
-    
+
   }
 
 }
