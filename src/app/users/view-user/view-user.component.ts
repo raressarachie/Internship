@@ -1,7 +1,7 @@
 import {Component,OnInit} from '@angular/core'
 import { UserService } from '../user.service';
 import { Router } from "@angular/router";
-import { User } from "../user.model";
+import { User } from "../model/user.model";
 import {ActivatedRoute} from '@angular/router'
 
 @Component({
@@ -18,11 +18,11 @@ styles:[
 export class ViewUserComponent implements OnInit{
    users:any[]
     user: User;
-    
+
     constructor(private userService: UserService, private route: ActivatedRoute, private router: Router){}
 
     ngOnInit(){
-        
+
       this.user = this.userService.getUser(
            +this.route.snapshot.params['id'])
         console.log(this.user)
