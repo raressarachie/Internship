@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from '../user.model';
+import { User } from '../model/user.model';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -38,14 +38,14 @@ export class CreateUserComponent implements OnInit {
     if(this.route.snapshot.params['id']) {
       let id = +this.route.snapshot.params['id'];
       let user = this.userService.getUserById(+this.route.snapshot.params['id']);
-      
+
       this.firstName.setValue(user.firstName);
       this.lastName.setValue(user.lastName);
       this.userName.setValue(user.userName);
       this.eMail.setValue(user.eMail);
 
     }
-    
+
   }
 
   validateLastName() {
@@ -110,5 +110,5 @@ export class CreateUserComponent implements OnInit {
 
   }
 
-  
+
 }

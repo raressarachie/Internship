@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
-import { USERS } from './mock-users';
+import { User } from './model/user.model';
+import { USERS } from './model/mock-users';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
@@ -17,26 +17,25 @@ export class UserService {
     return Math.max.apply(Math, USERS.map(o => o.id)) + 1;
   }
 
-  getUserById(id:number):User{
-    for(let i= 0; i< USERS.length; i++){
-      if(USERS[i].id===id)
+  getUserById(id: number): User {
+    for (let i = 0; i < USERS.length; i++) {
+      if (USERS[i].id === id) {
        return USERS[i];
+      }
     }
   }
 
   saveUser(user) {
-    for (let i =0; i< USERS.length; i++)
-    {
-      if(USERS[i].id === user.id)
-      {
-        USERS[i]=user;
-        return  
+    for (let i = 0; i < USERS.length; i++) {
+      if (USERS[i].id === user.id) {
+        USERS[i] = user;
+        return;
       }
     }
     user.id = this.getNextId();
     USERS.push(user);
   }
-  getUser(id:number){
-    return USERS.find(User => User.id === id)
+  getUser(id: number) {
+    return USERS.find(User => User.id === id);
   }
 }
