@@ -36,4 +36,7 @@ export class UserService {
     user.id = this.getNextId();
     USERS.push(user);
   }
+  getUser(id:number){
+    return USERS.find(User => User.id === id)
+  }
 }

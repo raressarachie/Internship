@@ -6,7 +6,7 @@ export const USERS: User[] = [
     firstName: 'Rares',
     lastName: 'Sarachie',
     userName: 'rares',
-    eMail: 'rares@gmail.com'
+    eMail: 'rares@gmail.com',
   },
   {
     id: 2,
@@ -28,5 +28,6 @@ export const USERS: User[] = [
     lastName: 'Moldovan',
     userName: 'iosif',
     eMail: 'iosifmoldovan@gmail.com'
+
   }
 ];

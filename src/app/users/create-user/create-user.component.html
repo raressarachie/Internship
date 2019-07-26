@@ -14,8 +14,9 @@
       <input type="text" formControlName="lastName" />
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [ngClass]="{ error: !validateUserName() }">
       <label> User Name: </label>
+      <em *ngIf="!validateUserName()">Required!</em>
       <input type="text" formControlName="userName" />
     </div>
 
@@ -34,8 +35,9 @@
    
 
     <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" (click)="cancel()" class="btn btn-default">
+    <button type="button" (click)="cancel()" class="btn btn-warning">
       Cancel
     </button>
   </form>
 </div>
+ 
