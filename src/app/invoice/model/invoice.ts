@@ -1,9 +1,9 @@
-class Invoice{
-  constructor(private _total: number,private _client: string,private _date: Date){
-      this._total = _total;
-      this._client = _client;
-      this._date = _date;
-  }
+export class Invoice{
+  constructor(private _id, private _total: number,private _client: string,private _date: Date){}
+
+  get id(){
+    return this._id;
+}
 
   get total(){
       return this._total;
@@ -19,4 +19,4 @@ class Invoice{
 
 
 }
-export default Invoice
+

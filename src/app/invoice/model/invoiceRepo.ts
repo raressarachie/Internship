@@ -1,6 +1,6 @@
-import Invoice from "../model/invoice";
+import { Invoice } from "../model/invoice";
 
-class Repository{
+export class Repository{
     clients : string[] = [];
     invoices : Invoice[] = [];
 
@@ -9,6 +9,7 @@ class Repository{
                         'client5','client6','client7','client8',
                         'client9','client10','client11','client12',
                         'client13','client14','client15','client16'];
+        let id : number = 0;
         this.clients.forEach(element => {
             let nr = 2;
             let month = 0;
@@ -26,8 +27,8 @@ class Repository{
                         date.setDate(15);
                         ok = 0;
                     }
-
-                    let inv : Invoice = new Invoice(Repository.getRandomIntInclusive(0,1000),element, date)
+                    id ++;
+                    let inv : Invoice = new Invoice(id, Repository.getRandomIntInclusive(0,1000),element, date)
                     this.invoices.push(inv);
 
                     i++;
@@ -51,6 +52,6 @@ class Repository{
 
 }
 
-export default Repository;
+
 
 
