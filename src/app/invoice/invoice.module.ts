@@ -15,7 +15,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     RouterModule.forChild(invoiceRoutes),
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
     NgxPaginationModule
 
   ],

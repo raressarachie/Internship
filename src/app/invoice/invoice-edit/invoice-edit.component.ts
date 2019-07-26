@@ -65,7 +65,7 @@ export class InvoiceEditComponent implements OnInit {
 
   updateInvoice(formValues) {
     const invoice: Invoice = {
-      id: undefined,
+      id: this.invoiceId,
       total: formValues.total,
       client: formValues.client,
       date: formValues.date
@@ -75,11 +75,8 @@ export class InvoiceEditComponent implements OnInit {
 
     this.markFormGroupControlsAsTouched(this.newInvoiceForm);
 
-
-    if (this.newInvoiceForm.valid) {
-      this.invoiceService.updateInvoice(invoice);
-      this.router.navigate(['/users']);
-    }
+    this.invoiceService.updateInvoice(invoice);
+    this.router.navigate(['/invoice']);
   }
 
 }

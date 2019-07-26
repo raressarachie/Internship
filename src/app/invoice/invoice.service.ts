@@ -32,6 +32,7 @@ export class InvoiceService {
   updateInvoice(invoice) {
     for (let i = 0; i < this.invoices.length; i++) {
       if (this.invoices[i].id === invoice.id) {
+        
         this.invoices[i] = invoice;
         return;
       }
