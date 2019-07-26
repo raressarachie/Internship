@@ -4,11 +4,14 @@ import { RouterModule } from '@angular/router';
 import { InvoiceComponent } from './invoice.component';
 import { invoiceRoutes } from './invoice.routes';
 import { InvoiceService } from './invoice.service';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(invoiceRoutes),
+    NgxPaginationModule
+
   ],
   declarations: [
     InvoiceComponent

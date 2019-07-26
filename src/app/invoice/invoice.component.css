@@ -1,0 +1,57 @@
+#invoices {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#invoices td, #invoices th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#invoices tr:nth-child(even){background-color: #f2f2f2;}
+
+#invoices tr:hover {background-color: #ddd;}
+
+#invoices th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #52BCE2;
+  color: white;
+}
+
+.button {
+  background-color: rgb(16, 216, 22);
+  border: none;
+  color: rgb(3, 48, 9);
+  padding: 8px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.button1 {
+  background-color: rgb(38, 137, 177);
+  color: black;
+  border: 2px solid rgb(95, 144, 167);
+}
+.button2 {
+  background-color: rgb(39, 183, 219);
+  color: rgb(91, 120, 129);
+  border: 2px solid rgb(210, 246, 246);
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+#searchForm {margin-bottom: 13px;}
+

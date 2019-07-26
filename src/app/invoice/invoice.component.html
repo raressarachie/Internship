@@ -1,1 +1,23 @@
-INVOICES!!!!!!!!!!!!!!!!!!!!!!!!
+<table id="invoices">
+  <tr>
+    <th *ngFor="let header of headers">
+      {{header}}
+    </th>
+  </tr>
+
+    <tr *ngFor="let invoice of invoices  | paginate: { itemsPerPage: 5, currentPage: p }">
+      <td *ngFor="let col of columns">
+        <span *ngIf = "col != 'date' && col != 'actions'">
+            {{invoice[col]}}
+        </span>
+        <span *ngIf= "col === 'date'">
+            {{invoice[col] | date:'short'}}
+        </span>
+        <span *ngIf="col === 'actions'">
+            <button class="btn btn-info">View Invoice</button>
+            <button [routerLink]="['/invoice/edit', invoice.id]" class ="btn btn-warning">Edit Invoice</button>
+          </span>
+      </td>
+    </tr>
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
