@@ -9,7 +9,7 @@ import{UserRouteActivator} from './users/view-user/user-route-activator.service'
 
  export const routes: Routes = [
   { path: 'users/edit/:id', component: CreateUserComponent},
-  {path: 'users/view/:id', component: ViewUserComponent,
+  { path: 'users/view/:id', component: ViewUserComponent,
   canActivate: [UserRouteActivator] },
   { path: 'users/new', component: CreateUserComponent },
   { path: 'users', component: UsersComponent },
