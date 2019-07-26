@@ -19,7 +19,7 @@ export class UsersComponent implements OnInit {
     title = 'User list';
 
 
-    columns = ['firstName', 'lastName', 'userName', 'eMail' ,'Actions'];
+    columns = ['firstName', 'lastName', 'userName', 'eMail', 'Actions'];
 
     headers = ['First Name', 'Last Name', 'User Name', 'e-Mail', 'Actions'];
 

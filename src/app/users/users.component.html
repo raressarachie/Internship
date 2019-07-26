@@ -19,11 +19,14 @@
       <td *ngFor="let col of columns">
         {{user[col]}}
         <span *ngIf="col === 'Actions'">
-        <button class="button button2" (click)="toView(user.id)">View User</button> </span>
+
+        <button class="btn btn-info" (click)="toView(user.id)">View User</button> </span>
+        <span *ngIf = " col==='Actions'"> <button [routerLink]="['/users/edit', user.id]" class ="btn btn-warning">Edit User</button> </span>
+
       </td>
     </tr>
 
-    <button class="button button1" (click)="toUser()">Add User</button>
+    <button class="btn btn-info" (click)="toUser()">Add User</button>
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
 

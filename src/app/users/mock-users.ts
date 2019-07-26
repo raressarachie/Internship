@@ -7,31 +7,27 @@ export const USERS: User[] = [
     lastName: 'Sarachie',
     userName: 'rares',
     eMail: 'rares@gmail.com',
-    Actions:''
   },
   {
     id: 2,
     firstName: 'Simona',
     lastName: 'Bobotan',
     userName: 'simo',
-    eMail: 'simona.bobotan@gmail.com',
-    Actions:''
+    eMail: 'simona.bobotan@gmail.com'
   },
   {
     id: 3,
     firstName: 'Denise',
     lastName: 'Orosz',
     userName: 'denise',
-    eMail: 'denise@yahoo.com',
-    Actions:''
+    eMail: 'denise@yahoo.com'
   },
   {
     id: 4,
     firstName: 'Iosif',
     lastName: 'Moldovan',
     userName: 'iosif',
-    eMail: 'iosifmoldovan@gmail.com',
-    Actions:''
+    eMail: 'iosifmoldovan@gmail.com'
 
   }
 ];

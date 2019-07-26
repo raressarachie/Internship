@@ -68,7 +68,6 @@ export class CreateUserComponent implements OnInit {
       lastName: formValues.lastName,
       userName: formValues.userName,
       eMail: formValues.eMail,
-      Actions: undefined
     };
 
     this.markFormGroupControlsAsTouched(this.newUserForm);
