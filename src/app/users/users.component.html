@@ -19,8 +19,8 @@
       <td *ngFor="let col of columns">
         {{user[col]}}
         <span *ngIf="col === 'Actions'">
-
-        <button class="btn btn-info" (click)="toView(user.id)">View User</button> </span>
+          <button class="btn btn-info" (click)="toView(user.id)">View User</button>
+        </span>
         <span *ngIf = " col==='Actions'"> <button [routerLink]="['/users/edit', user.id]" class ="btn btn-warning">Edit User</button> </span>
 
       </td>

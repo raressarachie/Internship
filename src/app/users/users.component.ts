@@ -87,8 +87,6 @@ export class UsersComponent implements OnInit {
       this.setSearchTerm(value);
     }
   }
-
-
   toUser() {
     this.router.navigate(['users/new']);
   }

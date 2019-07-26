@@ -4,13 +4,21 @@ import { Invoice } from './model/invoice';
 
 @Component
 ({
-  templateUrl:'./invoice.component.html'
+  templateUrl:'./invoice.component.html',
+  styleUrls: [ './invoice.component.css' ]
+
 })
 export class InvoiceComponent implements OnInit{
 
   invoices : Invoice[] = []
 
-  constructor(private invoiceService: InvoiceService) {}
+  constructor(private invoiceService: InvoiceService) { }
+
+  title = 'Invoice list';
+  columns = ['total', 'client', 'date', 'actions'];
+  headers = ['total', 'client', 'date', 'actions'];
+  displayedInvoices = [];
+  p=1;
 
   getInvoices(): void {
     this.invoiceService.getInvoices()
@@ -23,10 +31,6 @@ export class InvoiceComponent implements OnInit{
 
   ngOnInit() {
     this.getInvoices()
-  }
-
-  ngOnInit(){
-    console.log("AAA");
   }
 
 }
