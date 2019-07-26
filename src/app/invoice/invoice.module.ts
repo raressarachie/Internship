@@ -7,6 +7,7 @@ import { InvoiceService } from './invoice.service';
 import { InvoiceEditComponent } from './invoice-edit/invoice-edit.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   imports: [
@@ -15,6 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     NgbModule
+    NgxPaginationModule
+
   ],
   declarations: [
     InvoiceComponent,
