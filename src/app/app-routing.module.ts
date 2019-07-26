@@ -9,6 +9,7 @@ import {UserRouteActivator} from './users/view-user/user-route-activator.service
 export const routes: Routes = [
   { path: 'users', loadChildren: './users/users.module#UsersModule'  },
   { path: '404', component: Error404Component },
+  { path: 'invoice', loadChildren: './invoice/invoice.module#InvoiceModule'}
 ];
 
 @NgModule({
