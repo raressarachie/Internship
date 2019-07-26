@@ -1,0 +1,24 @@
+<div class="col-md-12">
+  <h3>Edit Invoice</h3>
+</div>
+<div class="col-md-6">
+  <form autocomplete="off" [formGroup]="newInvoiceForm" (ngSubmit)="updateInvoice(newInvoiceForm.value)">
+    <div class="form-group">
+      <label for="total">Total:</label>
+      <input id="total" type="text" class="form-control" formControlName="total" placeholder="total value..." />
+    </div>
+    <div class="form-group">
+      <label for="client">Client:</label>
+      <input id="client" type="text" class="form-control" formControlName="client" placeholder="client..." />
+    </div>
+    <div id="date" class="form-group">
+      <label for="client">Date:</label>
+      <input id="date" type="text" class="form-control" formControlName="date" placeholder="yyyy-mm-dd..." ngbDatepicker #d="ngbDatepicker">
+      <div class="input-group-append">
+        <button class="btn btn-primary btn-sm" (click)="d.toggle()" type="button">Pick date</button>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-warning">Cancel</button>
+  </form>
+</div>
