@@ -28,8 +28,10 @@ export class UserService {
     for (let i =0; i< USERS.length; i++)
     {
       if(USERS[i].id === user.id)
+      {
         USERS[i]=user;
-      return
+        return  
+      }
     }
     user.id = this.getNextId();
     USERS.push(user);

@@ -76,7 +76,6 @@ export class CreateUserComponent implements OnInit {
       eMail: formValues.eMail
 
     };
-    console.log(user.id);
     if (this.newUserForm.valid) {
       this.userService.saveUser(user);
       this.router.navigate(["/users"]);
