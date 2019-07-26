@@ -5,6 +5,9 @@
     </div>
 </form>
 
+<button class="sorting btn btn-primary btn-sm" [class.active]="sortBy==='firstName'" (click)="sortBy='firstName'; sort()">By First Name</button>
+<button class="sorting btn btn-primary btn-sm"  [class.active]="sortBy==='lastName'" (click)="sortBy='lastName'; sort()">By Last Name</button>
+
 <table id="users">
   <tr>
     <th *ngFor="let header of headers">
@@ -16,8 +19,10 @@
       <td *ngFor="let col of columns">
         {{user[col]}}
         <span *ngIf="col === 'Actions'">
+
         <button class="btn btn-info" (click)="toView(user.id)">View User</button> </span>
         <span *ngIf = " col==='Actions'"> <button [routerLink]="['/users/edit', user.id]" class ="btn btn-warning">Edit User</button> </span>
+
       </td>
     </tr>
 
