@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { User } from './user.model';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
-import { typeWithParameters } from '@angular/compiler/src/render3/util';
 import { NgModel } from '@angular/forms';
 
 @Component({
@@ -11,6 +10,9 @@ import { NgModel } from '@angular/forms';
   styleUrls: [ './users.component.css' ]
 })
 export class UsersComponent implements OnInit {
+
+
+  constructor(private userService: UserService, private router: Router) { }
 
     users = [];
 
@@ -26,11 +28,11 @@ export class UsersComponent implements OnInit {
 
     displayedUsers = [];
 
-    p: number = 1;
+    p = 1;
 
-
-
-  constructor(private userService: UserService, private router: Router) { }
+    sortBy = 'firstName';
+    clickButton1 = 0;
+    clickButton2 = 0;
 
   getUsers(): void {
    this.userService.getUsers()
@@ -39,18 +41,18 @@ export class UsersComponent implements OnInit {
       );
 
    for (let i = 0; i < 25 ; i++) {
-    var j = 0;
-    while(j < 4){
+    let j = 0;
+    while (j < 4) {
       this.users.push(this.users[j]);
       j++;
     }
    }
 
-   this.displayedUsers = this.users;
+   this.displayedUsers = JSON.parse(JSON.stringify(this.users));
   }
 
   setSearchTerm(searchTerm) {
-    this.displayedUsers = this.users;
+    this.displayedUsers = JSON.parse(JSON.stringify(this.users));
     this.displayedUsers = this.displayedUsers.
     filter( user => user.userName.toLocaleLowerCase().includes(this.searchTerm.toLocaleLowerCase()));
   }
@@ -59,6 +61,27 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
+
+  sort() {
+    if (this.users) {
+      if (this.sortBy === 'firstName') {
+        this.clickButton1 += 1;
+        if (this.clickButton1 % 2 === 1) {
+          this.displayedUsers.sort(sortByFirstNameAsc);
+        } else {
+          this.displayedUsers = JSON.parse(JSON.stringify(this.users));
+        }
+
+    } else {
+      this.clickButton2 += 1;
+      if (this.clickButton2 % 2 === 1) {
+        (this.displayedUsers.sort(sortByLastNameAsc));
+      } else {
+        this.displayedUsers = JSON.parse(JSON.stringify(this.users));
+      }
+     }
+    }
+  }
   onWhiteSpaceEmit(value) {
     if (value === '') {
       this.setSearchTerm(value);
@@ -76,8 +99,27 @@ export class UsersComponent implements OnInit {
 
   }
 
-  editUser(){
-    this.router.navigate(['users/new']);
-  }
-
 }
+
+function sortByFirstNameAsc(user1: User, user2: User) {
+
+
+    if ( user1.firstName > user2.firstName ) {
+      return 1;
+    } else if ( user1.firstName === user2.firstName ) {
+      return 0;
+    } else { return -1; }
+}
+
+
+function sortByLastNameAsc(user1: User, user2: User) {
+  if ( user1.lastName > user2.lastName ) {
+    return 1;
+  } else if ( user1.lastName === user2.lastName ) {
+    return 0;
+ } else { return -1; }
+}
+
+
+
+
