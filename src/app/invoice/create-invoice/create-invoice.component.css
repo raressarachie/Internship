@@ -1,0 +1,39 @@
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: rgb(48, 110, 190);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #439cc5;
+}
+
+div.container {
+  border-radius: 5px;
+  background-color: #439cc5;
+  padding: 20px;
+  width: 40%;
+}
+
+em {float:right; color:#E05C65; padding-left: 10px;}
+  .error input, .error select, .error textarea {background-color:#E3C3C5;}
+  .error ::-webkit-input-placeholder {color:#999;}
+  .error ::-moz-placeholder {color:#999;}
+  .error :-moz-placeholder {color:#999;}
+  .error :ms-input-placeholder {color:#999;}
+

@@ -29,10 +29,15 @@ export class InvoiceService {
     return Math.max.apply(Math, this.invoices.map(o => o.id)) + 1;
   }
 
+  saveInvoice(invoice) {
+   invoice.id = this.getNextId();
+   this.invoices.push(invoice);
+  }
+
   updateInvoice(invoice) {
     for (let i = 0; i < this.invoices.length; i++) {
       if (this.invoices[i].id === invoice.id) {
-        
+
         this.invoices[i] = invoice;
         return;
       }

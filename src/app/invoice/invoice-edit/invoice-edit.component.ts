@@ -68,7 +68,7 @@ export class InvoiceEditComponent implements OnInit {
       id: this.invoiceId,
       total: formValues.total,
       client: formValues.client,
-      date: formValues.date
+      date: new Date(formValues.date.year, formValues.date.month-1, formValues.date.day)
 
     }
 
