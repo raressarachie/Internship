@@ -14,10 +14,11 @@
             {{invoice[col] | date:'short'}}
         </span>
         <span *ngIf="col === 'actions'">
-            <button class="btn btn-info">View Invoice</button>
+            <button [routerLink]="['/invoice/view', invoice.id]" class="btn btn-info">View Invoice</button>
             <button [routerLink]="['/invoice/edit', invoice.id]" class ="btn btn-warning">Edit Invoice</button>
           </span>
       </td>
     </tr>
 
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <button [routerLink]="['/invoice/new']" class="btn btn-info">Add Invoice</button>
