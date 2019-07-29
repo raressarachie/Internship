@@ -1,0 +1,67 @@
+<html>
+<head>
+<style>
+table {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+td, th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2;}
+
+th{
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: left;
+  background-color: #52BCE2;
+  color: black;
+}
+
+td{
+  padding-top: 10px;
+  padding-bottom: 15px;
+  text-align: left;
+  background-color: rgb(41, 99, 122);
+  color: white;
+}
+h2 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: #52BCE2
+}
+
+
+</style>
+</head>
+<body>
+    <h2>Invoice Details</h2>
+
+    <table id="invoice">
+        <tr>
+            <th>Total</th>
+            <td>{{this.invoice.total}} </td>
+        </tr>
+        <tr>
+          <th>Client</th>
+          <td>{{this.invoice.client}}</td>
+
+        </tr>
+        <tr>
+          <th>Date</th>
+          <td>{{this.invoice.date}}</td>
+        </tr>
+      </table>
+
+      </body>
+      <button class="btn btn-warning"
+      (click)="back()"> Back</button>
+      </html>
