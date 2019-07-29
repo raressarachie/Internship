@@ -5,7 +5,7 @@
     </th>
   </tr>
 
-    <tr *ngFor="let invoice of invoices  | paginate: { itemsPerPage: 5, currentPage: p }">
+    <tr *ngFor="let invoice of invoices  | paginate: { itemsPerPage: 10, currentPage: p }">
       <td *ngFor="let col of columns">
         <span *ngIf = "col != 'date' && col != 'actions'">
             {{invoice[col]}}
