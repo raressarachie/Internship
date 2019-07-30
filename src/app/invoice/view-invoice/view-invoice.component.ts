@@ -25,9 +25,6 @@ export class ViewInvoiceComponent implements OnInit {
     });
 
   }
-
-
-
   back(){
     this.router.navigate(['/invoices'])
   }
