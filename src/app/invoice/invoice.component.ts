@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { InvoiceService } from './invoice.service';
 import { Invoice } from './model/invoice';
+import { I18NHtmlParser } from '@angular/compiler';
 
 @Component
 ({
@@ -30,5 +31,14 @@ export class InvoiceComponent implements OnInit{
   ngOnInit() {
     this.getInvoices()
   }
+
+  sortFromLtoH():any {
+    this.invoices.sort((i1:Invoice, i2:Invoice)=>{return i1.total-i2.total})
+  }
+
+  sortFromHtoL():any {
+    this.invoices.sort((i1:Invoice, i2:Invoice)=>{return i2.total-i1.total})
+  }
+
 
 }
