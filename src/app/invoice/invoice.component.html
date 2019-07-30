@@ -1,10 +1,11 @@
+<button (click) = "sortFromHtoL()" class = "btn btn-info">Sort From the Highest to Lowest</button>
+<button (click) = "sortFromLtoH()" class = "btn btn-info">Sort From the Lowest to Highest </button>
 <table id="invoices">
   <tr>
     <th *ngFor="let header of headers">
       {{header}}
     </th>
   </tr>
-
     <tr *ngFor="let invoice of invoices  | paginate: { itemsPerPage: 10, currentPage: p }">
       <td *ngFor="let col of columns">
         <span *ngIf = "col != 'date' && col != 'actions'">

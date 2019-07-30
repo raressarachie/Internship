@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { UserService } from '../users/user.service';
 import { FormsModule } from '@angular/forms';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'nav-bar',
@@ -32,6 +33,37 @@ import { FormsModule } from '@angular/forms';
 })
 export class NavBarComponent {
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    // @Inject(DOCUMENT) private document
+    ) {}
 
+  // onStyleChange(event: any) {
+  //   let themes = {
+  //     "default": "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  //     "amelia": "node_modules/bootstrap/dist/css/amelia.min.css"
+  //   }
+  //   // jQuery(function(){
+  //   //   var themesheet = jQuery('<link href="'+ themes['amelia']+'" rel="stylesheet" />');
+  //   //   console.log(themesheet);
+  //   //    themesheet.appendTo('head');
+  //   //    jQuery('.theme-link').click(function(){
+  //   //       // var themeurl = themes[$(this).attr('data-theme')];
+  //   //       let themeurl = (event == "default") ? themes['default'] : themes['amelia']
+  //   //        themesheet.attr('href',themeurl);
+  //   //       console.log("AA");
+  //   //    });
+  //   // var themesheet = jQuery('<link href="'+ themes['default']+'" rel="stylesheet" type="text/css" />');
+  //   // themesheet.appendTo('head');
+  //   // let themeurl = (event == "default") ? themes['default'] : themes['amelia']
+  //   //        themesheet.attr('href',themeurl);
+  //   let style = document.createElement('style');
+  //   style.type = 'text/css';
+  //   style.sheet = "node_modules/bootstrap/dist/css/bootstrap.min.css";
+  //   style.
+  //   let head = this.document.getElementsByTagName('head')[0];
+  //   head.appendChild(style)
+
+  //   this.document.getElementById('theme').setAttribute('href', 'node_modules/bootstrap/dist/css/bootstrap.min.css');
+  // }
 }
